@@ -88,7 +88,7 @@ public class AccountManager {
     public String suggestUsernameVariation1(String username) {
         String suggestion1 = username;
 
-        while(usernameIsTaken(suggestion1)) {
+        while (usernameIsTaken(suggestion1)) {
             suggestion1 += (int) (Math.random() * 10);
         }
 
