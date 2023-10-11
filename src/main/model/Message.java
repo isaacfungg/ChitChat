@@ -21,6 +21,10 @@ public class Message {
         setMessages(messages);
     }
 
+    public ArrayList<String> getMessages() {
+        return messages;
+    }
+
     public String getSender() {
         return sender;
     }
