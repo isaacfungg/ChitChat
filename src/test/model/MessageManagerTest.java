@@ -17,6 +17,7 @@ public class MessageManagerTest {
     private Message m3;
     private Message m4;
     private Message m5;
+    private Message m6;
 
 
     @BeforeEach
@@ -30,6 +31,7 @@ public class MessageManagerTest {
         m3 = new Message("isaac2", "isaac1", message);
         m4 = new Message("isaac1", "isaac2", message);
         m5 = new Message("isaac3", "isaac1", message);
+        m6 = new Message("isaac3", "isaac1", message);
         messageManager = new MessageManager(a1);
     }
 
@@ -73,11 +75,6 @@ public class MessageManagerTest {
         messageManager.addMessage(m3);
         messageManager.addMessage(m4);
         messageManager.addMessage(m5);
-        messageManager.addMessage(m1);
-        messageManager.addMessage(m2);
-        messageManager.addMessage(m3);
-        messageManager.addMessage(m4);
-        messageManager.addMessage(m5);
         messageManager.loadUserInbox();
 
         ArrayList<String> inboxNames = messageManager.getUserInboxNames();
@@ -95,6 +92,7 @@ public class MessageManagerTest {
         messageManager.addMessage(m3);
         messageManager.addMessage(m4);
         messageManager.addMessage(m5);
+        messageManager.addMessage(m6);
 
         ArrayList<Message> messages = messageManager.getUserMessages("isaac2");
 
