@@ -88,9 +88,9 @@ public class AccountManager {
     public String suggestUsernameVariation1(String username) {
         String suggestion1 = username;
 
-        do {
+        while(usernameIsTaken(suggestion1)) {
             suggestion1 += (int) (Math.random() * 10);
-        } while (usernameIsTaken(suggestion1));
+        }
 
         return suggestion1;
     }
@@ -99,12 +99,14 @@ public class AccountManager {
     // is similar to the one they had entered
     public String suggestUsernameVariation2(String username) {
         String suggestion2 = username;
-        do {
+
+        while (usernameIsTaken(suggestion2)) {
             suggestion2 = username.charAt(0) + suggestion2;
-        } while (usernameIsTaken(suggestion2));
+        }
 
         return suggestion2;
     }
+
 
     //Effects: Checks if the username is valid
     // by seeing if it contains specific characters

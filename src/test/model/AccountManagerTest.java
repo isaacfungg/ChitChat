@@ -134,11 +134,12 @@ public class AccountManagerTest {
         assertFalse(accountManager.isValidUsername(",username"));
 
         assertFalse(accountManager.isValidUsername("username/"));
-        assertFalse(accountManager.isValidUsername("user/name"));
+        assertFalse(accountManager.isValidUsername("user/ name"));
         assertFalse(accountManager.isValidUsername("/username"));
 
         assertFalse(accountManager.isValidUsername("user, name"));
-        assertFalse(accountManager.isValidUsername("user name/"));
+        assertFalse(accountManager.isValidUsername("user,/name"));
+        assertFalse(accountManager.isValidUsername(",user name/"));
     }
 }
 

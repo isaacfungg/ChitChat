@@ -73,6 +73,11 @@ public class MessageManagerTest {
         messageManager.addMessage(m3);
         messageManager.addMessage(m4);
         messageManager.addMessage(m5);
+        messageManager.addMessage(m1);
+        messageManager.addMessage(m2);
+        messageManager.addMessage(m3);
+        messageManager.addMessage(m4);
+        messageManager.addMessage(m5);
         messageManager.loadUserInbox();
 
         ArrayList<String> inboxNames = messageManager.getUserInboxNames();

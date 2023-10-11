@@ -38,7 +38,7 @@ public class Message {
     }
 
     public ArrayList<String> getMessages() {
-        return messages;
+        return this.messages;
     }
 
     public void setMessages(ArrayList<String> messages) {
