@@ -25,4 +25,4 @@ the programming aspects behind it which is what intrigues me.
 * As a user, I want to be able to create a new conversation (adds to a list)
 * As a user, I want to be able to view a list of people I have talked to
 * As a user, I want to be able to view a list of people to talk to
-* 
+* As a user, I want to be able 
