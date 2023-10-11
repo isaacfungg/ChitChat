@@ -21,8 +21,8 @@ through an online social media app. I want to somewhat understand
 the programming aspects behind it which is what intrigues me.
 
 ### User Stories
-* As a user, I want to be able to create an account (adds to a list)
-* As a user, I want to be able to create a new conversation (adds to a list)
+* As a user, I want to be able to create an account which I can use to talk to others
+* As a user, I want to be able to create a new conversation with other users
 * As a user, I want to be able to view a list of people I have talked to
-* As a user, I want to be able to view a list of people to talk to
-* As a user, I want to be able 
+* As a user, I want to be able to receive messages that others may have sent to me
+* As a user, I want to be able to view a list of accounts to talk to
