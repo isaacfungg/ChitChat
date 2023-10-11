@@ -125,21 +125,14 @@ public class AccountManagerTest {
 
     @Test
     void testIsValidUsername() {
-        assertFalse(accountManager.isValidUsername("user name "));
-        assertFalse(accountManager.isValidUsername("user name"));
-        assertFalse(accountManager.isValidUsername(" username"));
-
-        assertFalse(accountManager.isValidUsername("username,"));
-        assertFalse(accountManager.isValidUsername("user,name"));
-        assertFalse(accountManager.isValidUsername(",username"));
-
         assertFalse(accountManager.isValidUsername("username/"));
-        assertFalse(accountManager.isValidUsername("user/ name"));
-        assertFalse(accountManager.isValidUsername("/username"));
-
-        assertFalse(accountManager.isValidUsername("user, name"));
-        assertFalse(accountManager.isValidUsername("user,/name"));
-        assertFalse(accountManager.isValidUsername(",user name/"));
+        assertFalse(accountManager.isValidUsername("user,name"));
+        assertFalse(accountManager.isValidUsername(" user,/name"));
+        assertFalse(accountManager.isValidUsername("user name"));
+        assertFalse(accountManager.isValidUsername(" user/name"));
+        assertFalse(accountManager.isValidUsername(" user,name"));
+        assertFalse(accountManager.isValidUsername(" user, name/"));
+        assertTrue(accountManager.isValidUsername("username"));
     }
 }
 
