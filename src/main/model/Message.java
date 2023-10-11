@@ -37,10 +37,6 @@ public class Message {
         this.receiver = receiver;
     }
 
-    public ArrayList<String> getMessages() {
-        return this.messages;
-    }
-
     public void setMessages(ArrayList<String> messages) {
         this.messages = messages;
     }

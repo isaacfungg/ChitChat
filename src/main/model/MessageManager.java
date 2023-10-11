@@ -41,12 +41,14 @@ public class MessageManager {
     //Effects: creates a new list of the names in the
     // user inbox and also refreshes userInbox for any updates
     public ArrayList<String> getUserInboxNames() {
+        String tempSender;
         loadUserInbox();
         ArrayList<String> userInboxNames = new ArrayList<>();
 
         for (Message message : userInbox) {
-            if (!userInboxNames.contains(message.getSender())) {
-                userInboxNames.add(message.getSender());
+            tempSender = message.getSender();
+            if (!userInboxNames.contains(tempSender)) {
+                userInboxNames.add(tempSender);
             }
         }
 
