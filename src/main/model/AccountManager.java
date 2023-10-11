@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Keeps track of all the accounts and
+ * make sure there's no duplicates
+ */
 public class AccountManager {
 
     private ArrayList<Account> accountList = new ArrayList<>();

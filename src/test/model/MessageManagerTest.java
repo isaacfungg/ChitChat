@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MessageManagerTest {
 
-    private MessageManager messageManger;
+    private MessageManager messageManager;
     private Account a1;
     private Message m1;
     private Message m2;
@@ -30,16 +30,16 @@ public class MessageManagerTest {
         m3 = new Message("isaac2", "isaac1", message);
         m4 = new Message("isaac1", "isaac2", message);
         m5 = new Message("isaac3", "isaac1", message);
-        messageManger = new MessageManager(a1);
+        messageManager = new MessageManager(a1);
     }
 
     @Test
     void testAddMessage() {
-        messageManger.addMessage(m1);
-        messageManger.addMessage(m2);
-        messageManger.addMessage(m3);
+        messageManager.addMessage(m1);
+        messageManager.addMessage(m2);
+        messageManager.addMessage(m3);
 
-        ArrayList<Message> messages = messageManger.getMessageList();
+        ArrayList<Message> messages = messageManager.getMessageList();
 
         assertTrue(messages.contains(m1));
         assertTrue(messages.contains(m2));
@@ -49,13 +49,14 @@ public class MessageManagerTest {
 
     @Test
     void testLoadUserInbox() {
-        messageManger.addMessage(m1);
-        messageManger.addMessage(m2);
-        messageManger.addMessage(m3);
-        messageManger.addMessage(m4);
-        messageManger.addMessage(m5);
+        messageManager.addMessage(m1);
+        messageManager.addMessage(m2);
+        messageManager.addMessage(m3);
+        messageManager.addMessage(m4);
+        messageManager.addMessage(m5);
 
-        ArrayList<Message> messages = messageManger.getUserInbox();
+
+        ArrayList<Message> messages = messageManager.getUserInbox();
 
         assertFalse(messages.contains(m1));
         assertFalse(messages.contains(m2));
@@ -66,14 +67,31 @@ public class MessageManagerTest {
     }
 
     @Test
-    void testGetUserMessages() {
-        messageManger.addMessage(m1);
-        messageManger.addMessage(m2);
-        messageManger.addMessage(m3);
-        messageManger.addMessage(m4);
-        messageManger.addMessage(m5);
+    void testGetUserInboxNames() {
+        messageManager.addMessage(m1);
+        messageManager.addMessage(m2);
+        messageManager.addMessage(m3);
+        messageManager.addMessage(m4);
+        messageManager.addMessage(m5);
+        messageManager.loadUserInbox();
 
-        ArrayList<Message> messages = messageManger.getUserMessages("isaac2");
+        ArrayList<String> inboxNames = messageManager.getUserInboxNames();
+        assertTrue(inboxNames.contains("isaac2"));
+        assertTrue(inboxNames.contains("isaac3"));
+        assertFalse(inboxNames.contains("isaac"));
+        assertEquals(2, inboxNames.size());
+
+    }
+
+    @Test
+    void testGetUserMessages() {
+        messageManager.addMessage(m1);
+        messageManager.addMessage(m2);
+        messageManager.addMessage(m3);
+        messageManager.addMessage(m4);
+        messageManager.addMessage(m5);
+
+        ArrayList<Message> messages = messageManager.getUserMessages("isaac2");
 
         assertFalse(messages.contains(m1));
         assertFalse(messages.contains(m2));

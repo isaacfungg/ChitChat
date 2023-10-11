@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Allows the user to create
+ * a message to be sent to others
+ */
 public class Message {
 
     private String sender;

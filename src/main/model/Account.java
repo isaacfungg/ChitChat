@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Allows the user to create an account
+ * with a username and password
+ */
 public class Account {
 
     private String userName;

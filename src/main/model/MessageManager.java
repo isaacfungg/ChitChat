@@ -2,6 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Keeps track of messages and sorts the
+ * messages according to the users
+ */
 public class MessageManager {
 
     private ArrayList<Message> messageList; //Contains all messages
@@ -68,7 +72,7 @@ public class MessageManager {
     //Modifies: this
     //Effects: Updates userInbox if there are any new messages
     //that have been added since the last time this was run
-    private void loadUserInbox() {
+    public void loadUserInbox() {
         String username = account.getUserName();
 
         //Finds which messages are for this user
