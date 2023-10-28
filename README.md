@@ -26,3 +26,5 @@ the programming aspects behind it which is what intrigues me.
 * As a user, I want to be able to view a list of people I have talked to
 * As a user, I want to be able to receive messages that others may have sent to me
 * As a user, I want to be able to view a list of accounts to talk to
+* As a user, I want to be able to save messages I have viewed (or else they get deleted)
+* As a user, I want to be able to load messages from file

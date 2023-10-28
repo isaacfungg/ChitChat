@@ -19,7 +19,6 @@ public class MessageManager {
         this.messageList = new ArrayList<>();
         this.userInbox = new ArrayList<>();
         this.account = account;
-
     }
 
     //Modifies: this
@@ -61,6 +60,7 @@ public class MessageManager {
     //user that has been requested and refreshes userInbox for updates
     public ArrayList<Message> getUserMessages(String username) {
         ArrayList<Message> inboxMessages = new ArrayList<>();
+
         loadUserInbox();
 
         for (Message message : userInbox) {
@@ -84,4 +84,5 @@ public class MessageManager {
             }
         }
     }
+
 }
