@@ -1,4 +1,4 @@
-package persistence;
+package model;
 
 import model.Account;
 import model.AccountManager;
@@ -6,6 +6,8 @@ import model.Message;
 import model.MessageManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.io.IOException;
 import java.util.ArrayList;
