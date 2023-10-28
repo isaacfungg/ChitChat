@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "receiver": "isaac2",
+        "sender": "isaac",
+        "messages": [
+            "",
+            "hi",
+            "hi",
+            "hi"
+        ]
+    },
+    {
+        "receiver": "isaac",
+        "sender": "isaac",
+        "messages": [
+            "",
+            "bye",
+            "bye",
+            "bye"
+        ]
+    }
+]
