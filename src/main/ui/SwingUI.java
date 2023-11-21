@@ -265,11 +265,7 @@ public class SwingUI {
      * send message page
      */
     private static void setMessagePage(String user) {
-        sendMessageFrame = new JFrame(user);
-        sendMessageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        sendMessageFrame.setSize(500, 300);
-        sendMessageFrame.setLocationRelativeTo(null);
-        sendMessageFrame.setLayout(new BorderLayout());
+        sendMessageFrame = makeFrame();
 
         messageTextArea = new JTextArea(20, 20);
         messageInput = new JTextField(1);
@@ -278,6 +274,7 @@ public class SwingUI {
         messageBackButton = new JButton("Back");
 
         messageInput.setColumns(25);
+        messageTextArea.setEditable(false);
 
         inputPanel.add(messageInput);
         inputPanel.add(postButton);
@@ -341,10 +338,7 @@ public class SwingUI {
      * page and add them to the panel
      */
     private static void setOptionsFrame() {
-        optionsFrame = new JFrame("Messaging Program");
-        optionsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        optionsFrame.setSize(500, 300);
-        optionsFrame.setLocationRelativeTo(null);
+        optionsFrame = makeFrame();
 
         optionsPanel = new JPanel(new GridLayout(5, 1));
 
