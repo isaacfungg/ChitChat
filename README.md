@@ -1,6 +1,6 @@
 # My Personal Project
 
-## Mock Social Media Platform 
+## Messaging Platform 
 
 **What will the application do?**
 * The application will allow a user to create or log into the platform and

@@ -173,7 +173,7 @@ public class ConsoleUI {
             texts = messages.get(i).getMessages();
             System.out.print("Message " + (i + 1) + ": ");
             for (String text : texts) {
-                System.out.println(text);
+                System.out.print(text);
             }
             System.out.println();
         }
@@ -214,7 +214,9 @@ public class ConsoleUI {
         int index;
         for (Message m : messages) {
             index = messageList.indexOf(m);
-            messageList.remove(index);
+            if (index != -1) {
+                messageList.remove(index);
+            }
         }
     }
 
@@ -262,7 +264,7 @@ public class ConsoleUI {
         do {
             userInput = input.nextLine();
             if (!userInput.trim().equalsIgnoreCase("EXIT")) {
-                messages.add(userInput);
+                messages.add(userInput + "\n");
             }
         } while (!userInput.trim().equalsIgnoreCase("EXIT"));
         System.out.println("You have exited. ");

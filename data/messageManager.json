@@ -1,22 +1,47 @@
 [
     {
-        "receiver": "isaac2",
+        "receiver": "isaac",
         "sender": "isaac",
         "messages": [
-            "",
-            "hi",
-            "hi",
-            "hi"
+            "hi\n",
+            "how are you?\n"
+        ]
+    },
+    {
+        "receiver": "isaac1",
+        "sender": "isaac",
+        "messages": []
+    },
+    {
+        "receiver": "isaac",
+        "sender": "isaac",
+        "messages": [
+            "message 1\n",
+            "message\n",
+            "testing\n"
         ]
     },
     {
         "receiver": "isaac",
         "sender": "isaac",
         "messages": [
-            "",
-            "bye",
-            "bye",
-            "bye"
+            "message 2\n",
+            "hi\n",
+            "????\n"
         ]
+    },
+    {
+        "receiver": "isaac1",
+        "sender": "isaac",
+        "messages": [
+            "message\n",
+            "test\n",
+            "??A?A?DIWDIN\n"
+        ]
+    },
+    {
+        "receiver": "isaac",
+        "sender": "isaac",
+        "messages": ["testing\n"]
     }
 ]
