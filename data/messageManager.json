@@ -8,11 +8,6 @@
         ]
     },
     {
-        "receiver": "isaac1",
-        "sender": "isaac",
-        "messages": []
-    },
-    {
         "receiver": "isaac",
         "sender": "isaac",
         "messages": [
@@ -31,17 +26,13 @@
         ]
     },
     {
-        "receiver": "isaac1",
-        "sender": "isaac",
-        "messages": [
-            "message\n",
-            "test\n",
-            "??A?A?DIWDIN\n"
-        ]
-    },
-    {
         "receiver": "isaac",
         "sender": "isaac",
         "messages": ["testing\n"]
+    },
+    {
+        "receiver": "isaac2",
+        "sender": "isaac1",
+        "messages": ["hi hi\n"]
     }
 ]

@@ -127,23 +127,33 @@ public class SwingUI {
      * were sent by the given sender
      */
     private static void createDisplayMessagePage(String sender) {
-        JFrame displayMessageFrame = new JFrame("Messaging Program");
-        displayMessageFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        displayMessageFrame.setSize(500, 300);
-        displayMessageFrame.setLocationRelativeTo(null);
-        displayMessageFrame.setLayout(new BorderLayout());
+        JFrame displayMessageFrame = makeFrame();
 
         JTextArea displayMessageArea = new JTextArea(20, 20);
         displayMessageArea.setEditable(false);
-        JPanel displayMessagePanel = new JPanel(new GridLayout(3, 1));
+        JPanel displayMessagePanel = new JPanel(new GridLayout(2, 1));
         JScrollPane scrollPane = new JScrollPane(displayMessageArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
+        JButton saveButton = new JButton("Save");
+        JButton backButton = new JButton("Back");
+
         appendMessages(displayMessageArea, sender);
 
-        getMessageArray(sender);
+        saveButton.addActionListener(e -> {
+            displayMessageFrame.dispose();
+            createOptionsPage();
+        });
 
-        displayMessagePanel.add(getBackButton(displayMessageFrame));
+        backButton.addActionListener(e -> {
+            removeMessage(sender);
+            displayMessageFrame.dispose();
+            createOptionsPage();
+        });
+
+        displayMessagePanel.add(backButton);
+        displayMessagePanel.add(saveButton);
+
         displayMessageFrame.add(scrollPane, BorderLayout.CENTER);
         displayMessageFrame.add(displayMessagePanel, BorderLayout.SOUTH);
         displayMessageFrame.setVisible(true);
@@ -180,11 +190,7 @@ public class SwingUI {
      * a user to send a message to
      */
     public static void createFindUserPage() {
-        findUserFrame = new JFrame("Messaging Program");
-        findUserFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        findUserFrame.setSize(500, 300);
-        findUserFrame.setLocationRelativeTo(null);
-        findUserFrame.setLayout(new BorderLayout());
+        findUserFrame = makeFrame();
 
         JPanel findUserPanel = new JPanel(new GridLayout(2, 1));
         ArrayList<String> usernameList = new ArrayList<>();
@@ -210,11 +216,7 @@ public class SwingUI {
      * to see all the users available
      */
     private static void createDisplayUsersPage(boolean sort) {
-        JFrame displayUsersFrame = new JFrame("Messaging Program");
-        displayUsersFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        displayUsersFrame.setSize(500, 300);
-        displayUsersFrame.setLocationRelativeTo(null);
-
+        JFrame displayUsersFrame = makeFrame();
         JPanel displayUsersPanel = new JPanel(new BorderLayout());
 
         JTextArea userDisplayField = new JTextArea();
@@ -247,6 +249,16 @@ public class SwingUI {
 
 
     //---------------------------------------- Set Methods ----------------------------------------
+
+    private static JFrame makeFrame() {
+        JFrame frame = new JFrame("Messaging Program");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 300);
+        frame.setLocationRelativeTo(null);
+        frame.setLayout(new BorderLayout());
+
+        return frame;
+    }
 
     /**
      * Set all the components for the
@@ -506,15 +518,11 @@ public class SwingUI {
         }
     }
 
-    private void removeMessage(ArrayList<Message> messages) {
-        ArrayList<Message> messageList = messageManager.getMessageList();
-        int index;
-        for (Message m : messages) {
-            index = messageList.indexOf(m);
-            if (index != -1) {
-                messageList.remove(index);
-            }
-        }
+    private static void removeMessage(String sender) {
+        ArrayList<Message> messageList = messageManager.getUserMessages(sender);
+        ArrayList<Message> allMessages = messageManager.getMessageList();
+        allMessages.removeAll(messageList);
+        saveMessageToFile();
     }
 
     /**
@@ -533,21 +541,6 @@ public class SwingUI {
             displayMessageArea.append("\n");
         }
     }
-
-    /**
-     * Creates an array of the number of
-     * messages for the user
-     */
-    private static String[] getMessageArray(String sender) {
-        ArrayList<Message> messages = messageManager.getUserMessages(sender);
-        String[] array = new String[messages.size()];
-        for (int i = 1; i <= messages.size(); i++) {
-            array[i - 1] = "i";
-        }
-        return array;
-    }
-
-
 
 
 }
