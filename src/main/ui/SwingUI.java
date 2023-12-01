@@ -1,9 +1,7 @@
 package ui;
 
-import model.Account;
-import model.AccountManager;
-import model.Message;
-import model.MessageManager;
+import model.*;
+import model.Event;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -50,7 +48,10 @@ public class SwingUI {
     private static JComboBox userListBox;
     private static JFrame findUserFrame;
 
+    private static EventLog eventLog;
+
     public static void main(String[] args) {
+        eventLog = EventLog.getInstance();
         jsonReader = new JsonReader();
         jsonWriter = new JsonWriter();
         SwingUtilities.invokeLater(() -> createLoginPage());
@@ -100,7 +101,7 @@ public class SwingUI {
      * send messages to
      */
     private static void createSendMessagePage(String user) {
-        setMessagePage(user);
+        setMessagePage();
 
         ArrayList<String> messages = new ArrayList<>();
         postButton.addActionListener(e -> {
@@ -264,7 +265,7 @@ public class SwingUI {
      * Set all the components for the
      * send message page
      */
-    private static void setMessagePage(String user) {
+    private static void setMessagePage() {
         sendMessageFrame = makeFrame();
 
         messageTextArea = new JTextArea(20, 20);
@@ -329,7 +330,7 @@ public class SwingUI {
         logoutButton.addActionListener(e -> {
             accountManager.logOut();
             optionsFrame.dispose();
-            System.exit(0);
+            printEventMessages();;
         });
     }
 
@@ -409,7 +410,7 @@ public class SwingUI {
     }
 
     /**
-     * Performs the actions needeed to
+     * Performs the actions needed to
      * create an account for the user
      */
     private static void performCreateAccountAction() {
@@ -534,6 +535,13 @@ public class SwingUI {
             }
             displayMessageArea.append("\n");
         }
+    }
+
+    private static void printEventMessages() {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
+        System.exit(0);
     }
 
 

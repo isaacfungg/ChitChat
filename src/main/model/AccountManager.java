@@ -11,14 +11,17 @@ public class AccountManager {
     private ArrayList<Account> accountList = new ArrayList<>();
     private boolean isLoggedIn;
     private Account account;
+    private EventLog eventLog;
 
     //Modifies: this
     //Effects: Sets isLoggedIn as false
     public AccountManager() {
         isLoggedIn = false;
+        eventLog = EventLog.getInstance();
     }
 
     public ArrayList<Account> getAccountList() {
+        eventLog.logEvent(new Event("Got Account List"));
         return this.accountList;
     }
 
@@ -31,6 +34,7 @@ public class AccountManager {
     }
 
     public boolean getIsLoggedIn() {
+        eventLog.logEvent(new Event("Checking if account is logged in"));
         return isLoggedIn;
     }
 
@@ -38,12 +42,14 @@ public class AccountManager {
     //Effects: isLoggedIn becomes true
     public void logIn() {
         this.isLoggedIn = true;
+        eventLog.logEvent(new Event("Logged in"));
     }
 
     //Modifies: this
     //Effects: isLoggedIn becomes false
     public void logOut() {
         this.isLoggedIn = false;
+        eventLog.logEvent(new Event("Logged out"));
     }
 
     //Modifies: this
@@ -57,6 +63,7 @@ public class AccountManager {
     //Effects: adds account to accountList
     public void addAccount(Account tempAccount) {
         this.accountList.add(tempAccount);
+        eventLog.logEvent(new Event("Added Account"));
     }
 
     //Effects: Checks the accountList if there is

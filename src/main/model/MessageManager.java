@@ -11,6 +11,7 @@ public class MessageManager {
     private ArrayList<Message> messageList; //Contains all messages
     private ArrayList<Message> userInbox;   //Contains all messages for a specific user
     private Account account;
+    private EventLog eventLog;
 
     //Modifies: this
     //Effects: Create an empty list of all messages and another
@@ -19,12 +20,14 @@ public class MessageManager {
         this.messageList = new ArrayList<>();
         this.userInbox = new ArrayList<>();
         this.account = account;
+        eventLog = EventLog.getInstance();
     }
 
     //Modifies: this
     //Effects: Adds message to messageList
     public void addMessage(Message message) {
         this.messageList.add(message);
+        eventLog.logEvent(new Event("Added Message"));
     }
 
     public ArrayList<Message> getMessageList() {
@@ -33,6 +36,7 @@ public class MessageManager {
 
     public ArrayList<Message> getUserInbox() {
         loadUserInbox();
+        eventLog.logEvent(new Event("Got User Inbox"));
         return userInbox;
     }
 
@@ -50,7 +54,7 @@ public class MessageManager {
                 userInboxNames.add(tempSender);
             }
         }
-
+        eventLog.logEvent(new Event("Got User Inbox Names"));
         return userInboxNames;
     }
 
@@ -68,6 +72,7 @@ public class MessageManager {
                 inboxMessages.add(message);
             }
         }
+        eventLog.logEvent(new Event("Got User Messages"));
         return inboxMessages;
     }
 
@@ -83,6 +88,8 @@ public class MessageManager {
                 userInbox.add(message);
             }
         }
+
+        eventLog.logEvent(new Event("Loaded User Inbox"));
     }
 
 }
