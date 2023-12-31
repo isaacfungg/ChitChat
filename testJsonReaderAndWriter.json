@@ -1,0 +1,15 @@
+[
+    {
+        "receiver": "receiver1",
+        "sender": "sender1",
+        "messages": [
+            "Hello",
+            "Hi"
+        ]
+    },
+    {
+        "receiver": "receiver2",
+        "sender": "sender2",
+        "messages": ["How are you?"]
+    }
+]
