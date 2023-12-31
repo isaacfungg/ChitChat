@@ -31,6 +31,7 @@ public class ConsoleUI {
         performUserAccountOptions();
         messageManager = new MessageManager(accountManager.getAccount());
         performUserMessagingOptions();
+        System.out.println("Ran");
     }
 
     public void performUserMessagingOptions() {
